@@ -44,3 +44,26 @@ const books = [
     tags: ["html", "advanced", "junior", "mid-senior"],
   },
 ];
+
+// Creare un array (availableBooks) che contiene tutti i libri disponibili.
+const booksCopy = [...books];
+const availableBooks = booksCopy.filter(
+  (element) => element.available === true,
+);
+console.log(availableBooks);
+
+// Crea un array (discountedBooks) con gli availableBooks, ciascuno con il prezzo scontato del 20% (mantieni lo stesso formato e arrotonda al centesimo)
+
+const discountedBooks = availableBooks.map((e) => {
+  const prezzoLibro = parseFloat(e.price);
+  console.log(prezzoLibro);
+  const Sconto = (prezzoLibro * 20) / 100;
+  const PrezzoScontato = prezzoLibro - Sconto;
+  return { ...e, price: (e.price = PrezzoScontato) };
+});
+console.log(discountedBooks);
+
+// Salva in una variabile (fullPricedBook) il primo elemento di discountedBooks che ha un prezzo intero (senza centesimi).
+
+const fullPricedBook = discountedBooks.find((e) => e.price % 1 === 0);
+console.log(fullPricedBook);
