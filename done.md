@@ -67,3 +67,48 @@ console.log(agesSum);
 
 // Stampa in console l’età media degli autori dei libri.
 console.log(agesSum / books.length); -->
+
+Bonus 1
+
+<!-- // Usando la l'API http://localhost:3333/books/{id} usa la combinazione di .map() e Promise.all(),
+// per creare una funzione (getBooks)
+//  che a partire da un array di id (ids), ritorna una promise che risolve un array di libri (books).
+const handleAsync = async (url) => {
+  const response = await fetch(url);
+  const obj = await response.json();
+  return obj;
+};
+async function getBooks(ids) {
+  const fetchApi = ids.map((el) =>
+    handleAsync(`http://localhost:3333/books/${el}`),
+  );
+  const books = await Promise.all(fetchApi);
+  return books;
+}
+
+(async () => {
+  const ids = [2, 13, 7, 21, 19];
+  const object = await getBooks(ids);
+  console.log(object);
+})();
+
+// Testala con l’array [2, 13, 7, 21, 19] . -->
+
+Bonus 2
+
+<!-- // Crea una variabile booleana (areThereAvailableBooks) per verificare se c’è almeno un libro disponibile.
+const bookCopy = [...books];
+
+const areThereAvailableBooks = bookCopy.some((el) => el.available === true);
+console.log(areThereAvailableBooks);
+
+// Crea un array (booksByPrice) con gli elementi di books ordinati in base al prezzo (crescente).
+const booksByPrice = bookCopy.sort(
+  (a, b) => parseFloat(a.price) - parseFloat(b.price),
+);
+bookCopy.sort((a, b) =>
+  (a.available === b.available ? 0 : a.available) ? -1 : 1,
+);
+console.log(booksByPrice);
+
+// Ordina l’array booksByPricein base alla disponibilità (prima quelli disponibili), senza creare un nuovo array. -->
