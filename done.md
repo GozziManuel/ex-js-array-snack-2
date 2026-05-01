@@ -53,3 +53,10 @@ if (areAuthorsAdults === true) {
 } else {
   authors = authors.sort((a, b) => b.age - a.age);
 } -->
+
+SNACK 4
+
+<!--
+Creare un array (ages) che contiene le età degli autori dei libri.
+Calcola la somma delle età (agesSum) usando reduce.
+Stampa in console l’età media degli autori dei libri. -->
