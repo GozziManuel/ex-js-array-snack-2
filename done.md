@@ -56,7 +56,14 @@ if (areAuthorsAdults === true) {
 
 SNACK 4
 
-<!--
-Creare un array (ages) che contiene le età degli autori dei libri.
-Calcola la somma delle età (agesSum) usando reduce.
-Stampa in console l’età media degli autori dei libri. -->
+<!-- // Creare un array (ages) che contiene le età degli autori dei libri.
+const booksCopy = [...books];
+const ages = booksCopy.map((e) => e.author.age);
+console.log(ages);
+
+// Calcola la somma delle età (agesSum) usando reduce.
+const agesSum = ages.reduce((acc, curr) => acc + curr, 0);
+console.log(agesSum);
+
+// Stampa in console l’età media degli autori dei libri.
+console.log(agesSum / books.length); -->
